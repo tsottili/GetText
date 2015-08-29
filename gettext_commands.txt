@@ -1,0 +1,16 @@
+COMANDI PER GETTEXT
+
+Estrae un pot dal file
+xgettext -o filename.pot filename.cpp
+
+Estrae il file .po per la traduzione
+msginit --no-translator -l it -o filename.it.po -i filename.pot 
+
+Unisce le nuove stringhe di un pot in po già creato
+msgmerge -U filename.it.po filename.pot 
+
+Crea file .mo da .po
+msgfmt -o it/LC_MESSAGES/filename.mo filename.it.po 
+
+Lanciare eseguibile per testare traduzioni:
+LANGUAGE=it eseguibile
